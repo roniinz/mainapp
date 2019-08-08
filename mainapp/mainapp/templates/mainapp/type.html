@@ -1,0 +1,13 @@
+{% extends "layout/base.html" %}
+        {% block title %}{{ type.name }}{% endblock %}
+        {% block content %}
+            <div class="info">
+                <a class="aspoiler{{ forloop.counter }}" href="javascript:fspoiler{{ forloop.counter }}()">
+                    <div class="nodecor"> {{ mainapp.type }} </div></a><div class="dday"> {{ mainapp.update_time|date:"d.m.Y H:i:s" }} </div>
+                    <div id="spoiler{{ forloop.counter }}" style="display:none">
+                        <script type="text/javascript">
+                            function fspoiler{{ forloop.counter }}() {obj = document.getElementById("spoiler{{ forloop.counter }}"); if( obj.style.display == "none" ) { obj.style.display = "block"; } else { obj.style.display = "none"; }}
+                        </script>
+                </div>
+            </div>
+        {% endblock %}
